@@ -13,7 +13,8 @@ Here's how to install the plugin:
 
 1. Register with Flurry and get an App key
 2. Download the Flurry SDK and add the Flurry.h and libFlurry.a files to your PhoneGap project in XCode.
-3. Add a key called "flurryPlugin" with the value "FlurryPhoneGapPlugin" to the Cordova.plist file
-4. Include the flurryPlugin.js file in your main index file.
-5. Call the startSession() method, with your app key, after the device is ready
-6. Call the other Flurry methods as appropriate.
+3. Add the FlurryPhoneGapPlugin.h and FlurryPhoneGapPlugin.m files to the Plugins directory of your project in XCode.
+4. Add a key called "flurryPlugin" with the value "FlurryPhoneGapPlugin" to the Cordova.plist file
+5. Include the flurryPlugin.js file in your main index file.
+6. Call the startSession() method, with your app key, after the device is ready
+7. Call the other Flurry methods as appropriate.
