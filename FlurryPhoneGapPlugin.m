@@ -156,7 +156,7 @@
     @try {
         NSString* event = [command.arguments objectAtIndex:0];
        
-        [Flurry endTimedEvent:event];
+        [Flurry endTimedEvent:event withParameters:nil];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         javaScript = [pluginResult toSuccessCallbackString:command.callbackId];
     }
