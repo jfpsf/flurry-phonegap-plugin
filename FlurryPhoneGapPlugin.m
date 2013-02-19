@@ -387,6 +387,52 @@
     [self writeJavascript:javaScript];
 }
 
+- (void) setSessionReportsOnCloseEnabled:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* pluginResult = nil;
+    NSString* javaScript = nil;
+    
+    NSLog(@"Enabling Flurry Report On App Closing");
+    
+    @try {
+        bool Value = [[command.arguments objectAtIndex:0]boolValue];
+        
+        [Flurry setSessionReportsOnCloseEnabled: Value];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        javaScript = [pluginResult toSuccessCallbackString:command.callbackId];
+    }
+    @catch (NSException *exception) {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_JSON_EXCEPTION
+                                         messageAsString:[exception reason]];
+        javaScript = [pluginResult toErrorCallbackString:command.callbackId];
+    }
+    
+    [self writeJavascript:javaScript];
+}
+
+- (void) setSessionReportsOnPauseEnabled:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* pluginResult = nil;
+    NSString* javaScript = nil;
+    
+    NSLog(@"Enabling Flurry Report On App Pausing");
+    
+    @try {
+        bool Value = [[command.arguments objectAtIndex:0]boolValue];
+        
+        [Flurry setSessionReportsOnPauseEnabled: Value];
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        javaScript = [pluginResult toSuccessCallbackString:command.callbackId];
+    }
+    @catch (NSException *exception) {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_JSON_EXCEPTION
+                                         messageAsString:[exception reason]];
+        javaScript = [pluginResult toErrorCallbackString:command.callbackId];
+    }
+    
+    [self writeJavascript:javaScript];
+}
+
 - (void) setSessionContinueSeconds:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;

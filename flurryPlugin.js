@@ -93,5 +93,15 @@ Flurry.prototype.setLatitude = function(latitude, longitude, horizontalAccuracy,
     return cordova.exec( successCallback, failureCallback, 'FlurryPlugin', 'setLatitude', [latitude,longitude,horizontalAccuracy,verticalAccuracy]);
 }
 
+// argument must be Yes or No, because it's objective C
+Flurry.prototype.setSessionReportsOnCloseEnabled = function (enabled, successCallback, failureCallback) {
+    return cordova.exec(successCallback, failureCallback, 'FlurryPlugin', 'setSessionReportsOnCloseEnabled', [enabled]);
+}
+
+// argument must be Yes or No, because it's objective C
+Flurry.prototype.setSessionReportsOnPauseEnabled = function (enabled, successCallback, failureCallback) {
+    return cordova.exec(successCallback, failureCallback, 'FlurryPlugin', 'setSessionReportsOnPauseEnabled', [enabled]);
+}
+
 flurry = new Flurry();
 
