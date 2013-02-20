@@ -1,6 +1,8 @@
 flurry-phonegap-plugin
 ======================
 
+UPDATE: 02/20/2013 - Updated to work with Flurry 4.1 and Cordova 2.4. Thanks Koraybalci
+
 Phonegap plugin for Flurry mobile analytics
 
 I've tested this plugin in PhoneGap 2.1 projects and it works fine. I've only included the methods that I've had a use for.
