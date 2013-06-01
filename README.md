@@ -1,6 +1,12 @@
 flurry-phonegap-plugin
 ======================
 
+UPDATE: 06/01/3013 - Koraybalci added an Android implementation for Flurry SDK. Folders ios and android
+for respective platforms are created. Since Flurry's own API is different between platforms, js sides of the plugins are also slightly
+different. Koray is the man!
+
+Tested with Phonegap 2.7 on Android with latest Flurry SDK.
+
 UPDATE: 02/20/2013 - Updated to work with Flurry 4.1 and Cordova 2.4. Thanks Koraybalci
 
 Phonegap plugin for Flurry mobile analytics
