@@ -152,25 +152,26 @@
 - (void) logTimedEventWithParameters:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-    
+
     NSLog(@"Logging Event %@", [command.arguments objectAtIndex:0]);
     NSLog(@"Event Parameters: %@", [command.arguments objectAtIndex:1]);
-    
-    @try {
-        NSError *e = nil;
+
+    @try 
+    {
+
         NSString* event = [command.arguments objectAtIndex:0];
-        NSData * data = [[command.arguments objectAtIndex:1] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary* parameters = [NSJSONSerialization JSONObjectWithData: data options: NSJSONReadingMutableContainers error: &e];
-        bool Timed = [[command.arguments objectAtIndex:1]boolValue];
-        
+        NSDictionary* parameters = [command.arguments objectAtIndex:1];
+        bool Timed = [[command.arguments objectAtIndex:2]boolValue];
+
         [Flurry logEvent:event withParameters:parameters timed:Timed];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     }
-    @catch (NSException *exception) {
+    @catch (NSException *exception) 
+    {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_JSON_EXCEPTION
-                                         messageAsString:[exception reason]];
+        messageAsString:[exception reason]];
     }
-    
+
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
