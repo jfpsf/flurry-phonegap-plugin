@@ -1,7 +1,8 @@
 // Flurry Phonegap Plugin by JFP 12/2012
 
-(function(cordova) {
-
+(function(window) {
+  var cordova = window.cordova || window.Cordova || window.PhoneGap;
+  
   function Flurry() {};
 
   // These functions must be called before you start the Flurry session
@@ -125,4 +126,4 @@
 
   cordova.addConstructor(Flurry.install);
 
-})(window.cordova || window.Cordova || window.PhoneGap);
+})(typeof global === "object" ? global : window);
