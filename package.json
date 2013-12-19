@@ -1,6 +1,6 @@
 {
   "name": "flurry-phonegap-plugin",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Phonegap plugin for Flurry mobile analytics",
   "main": "flurryPlugin.js",
   "repository": {
@@ -19,11 +19,16 @@
   "contributors": [
     {
       "name": "Koray Balcı",
-	  "url": "http://www.ccyazilim.com"
+	    "url": "http://www.ccyazilim.com"
     },
     {
       "name": "Christoph Atteneder",
       "url": "http://www.christophatteneder.com"
+    },
+    {
+      "name": "Ivan Karpan",
+      "email": "ivan.karpan@gmail.com",
+      "url": "http://ivankarpan.com"
     }
   ],
   "license": "MIT",
