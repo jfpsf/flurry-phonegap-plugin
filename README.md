@@ -10,6 +10,8 @@ UPDATE: 02/20/2013 - Updated to work with Flurry 4.1 and Cordova 2.4. Thanks Kor
 
 UPDATE: 12/11/2013 - Updated to work as a node package. Confirmed compatibility with Flurry 4.3 and Cordova 3.1
 
+UPDATE: 12/23/2013 - published as NPM Package, so should be installable now.
+
 Phonegap plugin for Flurry mobile analytics
 
 I've tested this plugin in PhoneGap 2.1 projects and it works fine. I've only included the methods that I've had a use for.
