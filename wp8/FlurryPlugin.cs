@@ -1,0 +1,98 @@
+using System.Runtime.Serialization;
+using WPCordovaClassLib.Cordova;
+using WPCordovaClassLib.Cordova.Commands;
+using WPCordovaClassLib.Cordova.JSON;
+using Microsoft.Phone.Shell;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.Phone.Controls;
+using System.Windows;
+using FlurryWP8SDK;
+
+namespace WPCordovaClassLib.Cordova.Commands
+{
+    public class FlurryPlugin : BaseCommand
+    {
+        public void setAppVersion(string options) {
+            string version = getParams(options)[0];
+            FlurryWP8SDK.Api.SetVersion(version);
+        }
+
+        public void startSession(string options) {
+            string apiKey = getParams(options)[0];
+            FlurryWP8SDK.Api.StartSession(apiKey);
+        }
+
+        public void setUserID(string options) {
+            string userId = getParams(options)[0];
+            FlurryWP8SDK.Api.SetUserId(userId);
+        }
+
+        public void setGender(string options) {
+            string gender = getParams(options)[0];
+            if (gender.Equals("male")) {
+                FlurryWP8SDK.Api.SetGender(FlurryWP8SDK.Models.Gender.Male);
+            } else
+                if (gender.Equals("female")) {
+                    FlurryWP8SDK.Api.SetGender(FlurryWP8SDK.Models.Gender.Female);
+                }
+                else {
+                    FlurryWP8SDK.Api.SetGender(FlurryWP8SDK.Models.Gender.Unknown);
+                }
+        }
+
+        public void setAge(string options) {
+            int age = int.Parse(getParams(options)[0]);
+            FlurryWP8SDK.Api.SetAge(age);
+        }
+
+        public void logEvent(string options) {
+            string eventName = getParams(options)[0];
+            FlurryWP8SDK.Api.LogEvent(eventName);
+        }
+
+        public void logEventWithParameters(string options) {
+            string eventName = getParams(options)[0];
+        }
+
+        public void logTimedEvent(string options) {
+            string eventName = getParams(options)[0];
+            bool TIMED = true;
+            FlurryWP8SDK.Api.LogEvent(eventName, TIMED);
+        }
+
+        public void logTimedEventWithParameters(string options) {
+            // TODO
+        }
+
+        public void endTimedEvent(string options) {
+            string eventName = getParams(options)[0];
+            FlurryWP8SDK.Api.EndTimedEvent(eventName);
+        }
+
+        public void endTimedEventWithParameters(string options) {
+            // TODO
+        }
+
+        public void setCrashReportingEnabled(string options) {
+            // seems this is not available in the WP8 Flurry SDK
+        }
+
+        public void logPageView(string options) {
+            FlurryWP8SDK.Api.LogPageView();
+        }
+
+        public void logError(string options) {
+            // Not implemented for WP8
+        }
+
+        private static string[] getParams(string options) {
+            return WPCordovaClassLib.Cordova.JSON.JsonHelper.Deserialize<string[]>(options);
+        }
+
+    }
+
+
+}
+

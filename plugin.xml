@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="flurry-phonegap-plugin"
+    version="0.2.1">
+
+	<engines>
+		<engine name="cordova" version=">=3.0.0"/>
+	</engines>
+	
+	<name>WP8 Plugin for Windows Store features</name>
+	
+	<description>Phonegap plugin for Flurry mobile analytics</description>
+	<author>John Potter</author>
+	
+	<keywords>flurry phonegap cordova</keywords>
+	<license>MIT</license>
+	
+	<js-module src="flurryPluginPhonegap3.js" name="flurry">
+		<clobbers target="window.plugins.flurry"/>
+	</js-module>
+	
+	<platform name="wp8">
+		<config-file target="config.xml" parent="/*">
+            <feature name="FlurryPlugin">
+                <param name="wp-package" value="FlurryPlugin"/>
+            </feature>
+        </config-file>
+		
+		<source-file src="wp8/FlurryPlugin.cs"/>
+	</platform>
+	
+	<info>
+	Contributors:
+	Koray Balcı (http://www.ccyazilim.com)
+	Christoph Atteneder (http://www.christophatteneder.com)
+	Ivan Karpan (ivan.karpan@gmail.com, http://ivankarpan.com)
+	Jaakko Santala (jaakko@hypermurea.com, http://hypermurea.com)
+	Bugs:
+	https://github.com/jfpsf/flurry-phonegap-plugin/issues
+	Repository:
+	https://github.com/jfpsf/flurry-phonegap-plugin
+	</info>
+	
+</plugin>
