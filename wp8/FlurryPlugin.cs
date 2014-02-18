@@ -1,3 +1,4 @@
+
 using System.Runtime.Serialization;
 using WPCordovaClassLib.Cordova;
 using WPCordovaClassLib.Cordova.Commands;
@@ -9,6 +10,8 @@ using System.Linq;
 using Microsoft.Phone.Controls;
 using System.Windows;
 using FlurryWP8SDK;
+
+using SimpleJSON;
 
 namespace WPCordovaClassLib.Cordova.Commands
 {
@@ -42,6 +45,19 @@ namespace WPCordovaClassLib.Cordova.Commands
                 }
         }
 
+        // Should be removed name is incorrect, chaining to setlocation
+        public void setLatitude(string options) {
+            setLocation(options);
+        }
+
+        public void setLocation(string options) {
+            string[] p = getParams(options);
+            double latitude = double.Parse(p[0]);
+            double longitude = double.Parse(p[1]);
+            float accuracy = float.Parse(p[2]);
+            FlurryWP8SDK.Api.SetLocation(latitude, longitude, accuracy);
+        }
+
         public void setAge(string options) {
             int age = int.Parse(getParams(options)[0]);
             FlurryWP8SDK.Api.SetAge(age);
@@ -53,7 +69,9 @@ namespace WPCordovaClassLib.Cordova.Commands
         }
 
         public void logEventWithParameters(string options) {
-            string eventName = getParams(options)[0];
+            string[] p = getParams(options);
+            string eventName = p[0];
+            FlurryWP8SDK.Api.LogEvent(eventName, jsonObjectToFlurryParameters(p[1]));
         }
 
         public void logTimedEvent(string options) {
@@ -63,7 +81,10 @@ namespace WPCordovaClassLib.Cordova.Commands
         }
 
         public void logTimedEventWithParameters(string options) {
-            // TODO
+            string[] p = getParams(options);
+            string eventName = p[0];
+            bool TIMED = true;
+            FlurryWP8SDK.Api.LogEvent(eventName, jsonObjectToFlurryParameters(p[1]), TIMED);
         }
 
         public void endTimedEvent(string options) {
@@ -72,7 +93,7 @@ namespace WPCordovaClassLib.Cordova.Commands
         }
 
         public void endTimedEventWithParameters(string options) {
-            // TODO
+            throw new NotImplementedException("logError has not been implemented for WP8");
         }
 
         public void setCrashReportingEnabled(string options) {
@@ -84,7 +105,17 @@ namespace WPCordovaClassLib.Cordova.Commands
         }
 
         public void logError(string options) {
-            // Not implemented for WP8
+            throw new NotImplementedException("logError has not been implemented for WP8");
+        }
+
+        private static List<FlurryWP8SDK.Models.Parameter> jsonObjectToFlurryParameters(string s) {
+            JObject parameters = JSONDecoder.Decode(s);
+
+            List<FlurryWP8SDK.Models.Parameter> flurryParameters = new List<FlurryWP8SDK.Models.Parameter>();
+            foreach (string key in parameters.ObjectValue.Keys) {
+                flurryParameters.Add(new FlurryWP8SDK.Models.Parameter(key, (string) parameters[key]));                
+            }
+            return flurryParameters;
         }
 
         private static string[] getParams(string options) {

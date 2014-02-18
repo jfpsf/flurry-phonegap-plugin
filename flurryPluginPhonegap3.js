@@ -1,4 +1,3 @@
-
   var exec = require('cordova/exec');
 
   var flurry = {};
@@ -96,10 +95,16 @@
   };
 
   // latitude and longitude must be doubles; horizontal and vertical accuracy must be float
-  flurry.setLatitude = function(latitude, longitude, horizontalAccuracy, verticalAccuracy, successCallback, failureCallback) {
+  // TODO should be removed named incorrectly (setLocation), retained for backward compatibility
+  flurry.setLatitude = function (latitude, longitude, horizontalAccuracy, verticalAccuracy, successCallback, failureCallback) {
     exec( successCallback, failureCallback, 'FlurryPlugin', 'setLatitude', [latitude,longitude,horizontalAccuracy,verticalAccuracy]);
   };
 
+  // latitude and longitude must be doubles; horizontal and vertical accuracy must be float
+  flurry.setLocation = function (latitude, longitude, horizontalAccuracy, verticalAccuracy, successCallback, failureCallback) {
+      exec(successCallback, failureCallback, 'FlurryPlugin', 'setLocation', [latitude, longitude, horizontalAccuracy, verticalAccuracy]);
+  };
+    
   // argument must be Yes or No, because it's objective C
   flurry.setSessionReportsOnCloseEnabled = function (enabled, successCallback, failureCallback) {
     exec(successCallback, failureCallback, 'FlurryPlugin', 'setSessionReportsOnCloseEnabled', [enabled]);
