@@ -1,5 +1,5 @@
 //
-//  FlurryPhoneGapPlugin.m
+//  FlurryPlugin.m
 //  Trailerpop
 //
 //  Created by John Potter on 11/21/12.
@@ -7,10 +7,10 @@
 //
 //
 
-#import "FlurryPhoneGapPlugin.h"
+#import "FlurryPlugin.h"
 #import "Flurry.h"
 
-@implementation FlurryPhoneGapPlugin
+@implementation FlurryPlugin
 
 - (id)init {
     self = [super init];
