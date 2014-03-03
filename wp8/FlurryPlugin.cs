@@ -7,6 +7,7 @@ using Microsoft.Phone.Shell;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Globalization;
 using Microsoft.Phone.Controls;
 using System.Windows;
 using FlurryWP8SDK;
@@ -52,9 +53,9 @@ namespace WPCordovaClassLib.Cordova.Commands
 
         public void setLocation(string options) {
             string[] p = getParams(options);
-            double latitude = double.Parse(p[0]);
-            double longitude = double.Parse(p[1]);
-            float accuracy = float.Parse(p[2]);
+            double latitude = double.Parse(p[0], CultureInfo.InvariantCulture);
+            double longitude = double.Parse(p[1], CultureInfo.InvariantCulture);
+            float accuracy = float.Parse(p[2], CultureInfo.InvariantCulture);
             FlurryWP8SDK.Api.SetLocation(latitude, longitude, accuracy);
         }
 
