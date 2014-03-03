@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Cordova/CDV.h>
 
-@interface FlurryPhoneGapPlugin : CDVPlugin {
+@interface FlurryPlugin : CDVPlugin {
     
 }
 
