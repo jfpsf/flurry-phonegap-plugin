@@ -1,7 +1,7 @@
 FlurryPlugin
 ============
 
-Made a proper Cordova 3 plugin by Patrick Heneise.
+Forked from https://github.com/jfpsf/flurry-phonegap-plugin and made it a Cordova 3 plugin.
 
 ## Usage
 
@@ -22,7 +22,6 @@ On iOS, verify that `libFlurry.a` is in the Build Phases/Link Binary with Librar
 
 - [jfpsf](https://github.com/jfpsf)
 - [Koray Balcı](https://github.com/Koraybalci)
-- [Patrick Heneise](https://github.com/PatrickHeneise)
 
 ## License
 Apache 2.0
