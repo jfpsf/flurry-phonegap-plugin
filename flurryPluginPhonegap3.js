@@ -4,6 +4,7 @@
 
 
   flurry.setAppVersion = function(version,successCallback,failureCallback) {
+    console.log('setAppversion called:' + version);
     exec(successCallback, failureCallback, 'FlurryPlugin', 'setAppVersion', [version]);
   };
 

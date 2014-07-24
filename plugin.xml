@@ -5,7 +5,7 @@
     version="0.2.1">
 
 	<engines>
-		<engine name="cordova" version=">=3.0.0"/>
+		<engine name="cordova" version=">=3.4.0"/>
 	</engines>
 	
 	<name>WP8 Plugin for Windows Store features</name>
@@ -31,6 +31,20 @@
 		<source-file src="wp8/JObject.cs"/>
 		<source-file src="wp8/JSONDecoder.cs"/>
 	</platform>
+
+	<platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="FlurryPlugin">
+                <param name="ios-package" value="FlurryPhoneGapPlugin"/>
+            </feature>
+        </config-file>
+        <header-file src="ios/FlurryPhoneGapPlugin.h" />
+        <source-file src="ios/FlurryPhoneGapPlugin.m" />
+        <source-file src="ios/lib/Flurry.h" />
+        <source-file src="ios/lib/libFlurry_5.2.0.a" framework="true"/>
+        <framework src="Security.framework"/>
+        <framework src="SystemConfiguration.framework"/>
+    </platform>
 	
 	<info>
 	Contributors:
