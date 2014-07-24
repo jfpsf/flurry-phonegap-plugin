@@ -45,6 +45,17 @@
         <framework src="Security.framework"/>
         <framework src="SystemConfiguration.framework"/>
     </platform>
+
+    <platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="FlurryPlugin">
+        		<param name="android-package" value="co.themobilefirm.FlurryPlugin.Flurry" />
+    		</feature>
+		</config-file>
+
+		<source-file src="src/android/Flurry.java" target-dir="src/co/themobilefirm/FlurryPlugin/" />
+		<source-file src="src/android/libFlurryAnalytics-4.1.0.jar" target-dir="libs" />
+	</platform>
 	
 	<info>
 	Contributors:
