@@ -53,8 +53,8 @@
     		</feature>
 		</config-file>
 
-		<source-file src="src/android/Flurry.java" target-dir="src/co/themobilefirm/FlurryPlugin/" />
-		<source-file src="src/android/libFlurryAnalytics-4.1.0.jar" target-dir="libs" />
+		<source-file src="android/Flurry.java" target-dir="src/co/themobilefirm/FlurryPlugin/" />
+		<source-file src="android/libFlurryAnalytics-4.1.0.jar" target-dir="libs" />
 	</platform>
 	
 	<info>
