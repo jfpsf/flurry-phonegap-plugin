@@ -38,13 +38,17 @@ public class Flurry extends CordovaPlugin {
             Log.d("Flurry", action);
             if(action.equals("startSession")) {
                 FlurryAgent.onStartSession(cordova.getActivity().getApplicationContext(), args.getString(0));
+            } else if(action.equals("endSession")) {
+                FlurryAgent.onEndSession(cordova.getActivity().getApplicationContext());
+            } else if(action.equals("setSessionContinueSeconds")) {
+                FlurryAgent.setContinueSessionMillis(args.getLong(0));
             } else if(action.equals("setAppVersion")) {
                 FlurryAgent.setVersionName(args.getString(0));
             } else if(action.equals("setUserID")) {
                 FlurryAgent.setUserId(args.getString(0));
             } else if(action.equals("setGender")) {
                 FlurryAgent.setGender((byte)args.getLong(0));
-            } else if(action.equals("setAge")) {                
+            } else if(action.equals("setAge")) {
                 FlurryAgent.setAge((int)args.getLong(0));
             } else if (action.equals("logEvent") || action.equals("logEventWithParameters")
                     || action.equals("logTimedEvent") || action.equals("logTimedEventWithParameters")) {

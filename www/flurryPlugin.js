@@ -48,6 +48,10 @@
     return cordova.exec(successCallback, failureCallback, 'FlurryPlugin', 'startSession', [key]);
   };
 
+  Flurry.prototype.endSession = function(successCallback,failureCallback) {
+    return cordova.exec(successCallback, failureCallback, 'FlurryPlugin', 'endSession', []);
+  };
+
   // event must be a string
   Flurry.prototype.logEvent = function(event, successCallback, failureCallback) {
     return cordova.exec( successCallback, failureCallback, 'FlurryPlugin', 'logEvent', [event]);
