@@ -20,6 +20,8 @@ On iOS, verify that `libFlurry.a` is in the Build Phases/Link Binary with Librar
 
 1. Call the startSession() method, with your app key, after the device is ready
 2. Call the other Flurry methods as appropriate.
+3. In Android, call flurry.endSession when the app is paused and again call flurry.startSession when the app resumes, or it won't log the session.
+4. In IOS, setSessionReportsOnCloseEnabled and setSessionReportsOnPauseEnabled to log the session.
 
 
 ## Contributors
