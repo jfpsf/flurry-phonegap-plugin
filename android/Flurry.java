@@ -1,4 +1,4 @@
-package com.phonegap.plugins.flurry;
+package co.themobilefirm.flurry;
 
 import java.util.HashMap;
 import java.util.Iterator;

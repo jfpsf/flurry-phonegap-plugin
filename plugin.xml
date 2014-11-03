@@ -8,7 +8,7 @@
 		<engine name="cordova" version=">=3.4.0"/>
 	</engines>
 	
-	<name>WP8 Plugin for Windows Store features</name>
+	<name>Phonegap Flurry plugin</name>
 	
 	<description>Phonegap plugin for Flurry mobile analytics</description>
 	<author>John Potter</author>
@@ -33,10 +33,15 @@
 	</platform>
 
 	<platform name="ios">
-        <config-file target="config.xml" parent="/*">
+        <config-file target="res/xml/config.xml" parent="/*">
             <feature name="FlurryPlugin">
                 <param name="ios-package" value="FlurryPhoneGapPlugin"/>
             </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
         </config-file>
         <header-file src="ios/FlurryPhoneGapPlugin.h" />
         <source-file src="ios/FlurryPhoneGapPlugin.m" />
@@ -49,11 +54,11 @@
     <platform name="android">
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="FlurryPlugin">
-        		<param name="android-package" value="co.themobilefirm.FlurryPlugin.Flurry" />
+        		<param name="android-package" value="co.themobilefirm.flurry.Flurry" />
     		</feature>
 		</config-file>
 
-		<source-file src="android/Flurry.java" target-dir="src/co/themobilefirm/FlurryPlugin/" />
+		<source-file src="android/Flurry.java" target-dir="src/co/themobilefirm/flurry/" />
 		<source-file src="android/lib/FlurryAnalytics-4.1.0.jar" target-dir="libs" />
 	</platform>
 	
@@ -62,7 +67,6 @@
 	Koray Balcı (http://www.ccyazilim.com)
 	Christoph Atteneder (http://www.christophatteneder.com)
 	Ivan Karpan (ivan.karpan@gmail.com, http://ivankarpan.com)
-	Jaakko Santala (jaakko@hypermurea.com, http://hypermurea.com)
 	Bugs:
 	https://github.com/jfpsf/flurry-phonegap-plugin/issues
 	Repository:
