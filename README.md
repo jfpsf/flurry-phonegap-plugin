@@ -1,28 +1,35 @@
-flurry-phonegap-plugin
-======================
+FlurryPlugin
+============
 
-UPDATE: 06/01/3013 - Koraybalci added an Android implementation for Flurry SDK. Folders ios and android
-for respective platforms are created. Since Flurry's own API is different between platforms, js sides of the plugins are also slightly
-different. Koray is the man!
+## Usage
 
-Tested with Phonegap 2.7 on Android with latest Flurry SDK.
+    cordova plugin add https://github.com/jfpsf/flurry-phonegap-plugin.git
 
-UPDATE: 02/20/2013 - Updated to work with Flurry 4.1 and Cordova 2.4. Thanks Koraybalci
 
-Phonegap plugin for Flurry mobile analytics
+### Get the SDK
+Unfortunately the policy of Flurry doesn't allow to include the SDK in this repository, so:
 
-I've tested this plugin in PhoneGap 2.1 projects and it works fine. I've only included the methods that I've had a use for.
-If you need any of the missing methods, please let me know, and I will look at adding them. Or, you can add them yourself, and submit the code.
+- you'll have to go to flurry.com
+- create an account
+- create and iPhone AND Android application to download the SDK files
+- Put them in `src/ios/libFlurry.a` and `src/android/FlurryAnalytics.jar`.
 
-You really need to be careful that you pass the correct values to the methods. In particular, all event parameters must be
-in an NSDictionary that only contains strings, and remember that in Objective C booleans are Yes and No.
 
-Here's how to install the plugin:
+On iOS, verify that `libFlurry.a` is in the Build Phases/Link Binary with Libraries and the Frameworks `CFNetwork`, `Security` and `SystemConfiguration` frameworks are added.
 
-1. Register with Flurry and get an App key
-2. Download the Flurry SDK and add the Flurry.h and libFlurry.a files to your PhoneGap project in XCode.
-3. Add the FlurryPhoneGapPlugin.h and FlurryPhoneGapPlugin.m files to the Plugins directory of your project in XCode.
-4. Add a key called "flurryPlugin" with the value "FlurryPhoneGapPlugin" to the Cordova.plist file
-5. Include the flurryPlugin.js file in your main index file.
-6. Call the startSession() method, with your app key, after the device is ready
-7. Call the other Flurry methods as appropriate.
+
+1. Call the startSession() method, with your app key, after the device is ready
+2. Call the other Flurry methods as appropriate.
+3. In Android, call flurry.endSession when the app is paused and again call flurry.startSession when the app resumes, or it won't log the session.
+4. In IOS, setSessionReportsOnCloseEnabled and setSessionReportsOnPauseEnabled to log the session.
+
+
+## Contributors
+
+- [jfpsf](https://github.com/jfpsf)
+- [Koray Balcı](https://github.com/Koraybalci)
+- [Patrick heneise (The Mobile Firm)](https://github.com/PatrickHeneise)
+- [Ivan Karpan](https://github.com/IvanKarpan)
+
+## License
+Apache 2.0

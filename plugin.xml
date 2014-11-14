@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	id="co.themobilefirm.FlurryPlugin"
+	version="3.3.6">
+	<name>Flurry SDK</name>
+	<description>Phonegap plugin for Flurry mobile analytics</description>
+	<license>Apache 2.0</license>
+	<keywords>flurry,analytics,phonegap,cordova</keywords>
+	<author>Patrick Heneise, The Mobile Firm</author>
+
+	<js-module src="www/flurryPlugin.js" name="FlurryPlugin">
+		<clobbers target="FlurryPlugin" />
+	</js-module>
+
+	<engines>
+		<engine name="cordova" version="&gt;=3.0.0" />
+	</engines>
+
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="FlurryPlugin">
+					<param name="ios-package" value="FlurryPlugin"/>
+			</feature>
+		</config-file>
+		<header-file src="src/ios/Flurry.h" />
+		<header-file src="src/ios/FlurryPlugin.h" />
+		<source-file src="src/ios/FlurryPlugin.m" />
+		<source-file src="src/ios/libFlurry.a" framework="true" />
+		<framework src="CFNetwork.framework" />
+		<framework src="SystemConfiguration.framework" />
+		<framework src="Security.framework" />
+	</platform>
+
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="FlurryPlugin">
+        <param name="android-package" value="co.themobilefirm.FlurryPlugin.Flurry" />
+    </feature>
+		</config-file>
+
+		<source-file src="src/android/Flurry.java"
+						target-dir="src/co/themobilefirm/FlurryPlugin/" />
+		<source-file src="src/android/FlurryAnalytics.jar"
+						target-dir="libs" />
+	</platform>
+</plugin>
