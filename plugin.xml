@@ -2,33 +2,31 @@
 <plugin
 	xmlns="http://apache.org/cordova/ns/plugins/1.0"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	id="co.themobilefirm.FlurryPlugin"
+	id="com.phonegap.plugins.Flurry"
 	version="3.3.6">
-	<name>Flurry SDK</name>
-	<description>Phonegap plugin for Flurry mobile analytics</description>
+	<name>Flurry</name>
+	<description>Cordova/Phonegap plugin for Flurry mobile analytics</description>
 	<license>Apache 2.0</license>
 	<keywords>flurry,analytics,phonegap,cordova</keywords>
-	<author>Patrick Heneise, The Mobile Firm</author>
+	<author>jfpsf</author>
 
 	<js-module src="www/flurryPlugin.js" name="FlurryPlugin">
 		<clobbers target="FlurryPlugin" />
 	</js-module>
 
 	<engines>
-		<engine name="cordova" version="&gt;=3.0.0" />
+		<engine name="cordova" version=">=3.0.0" />
 	</engines>
 
 	<platform name="ios">
 		<config-file target="config.xml" parent="/*">
 			<feature name="FlurryPlugin">
-					<param name="ios-package" value="FlurryPlugin"/>
+				<param name="ios-package" value="FlurryPlugin"/>
 			</feature>
 		</config-file>
 		<header-file src="src/ios/Flurry.h" />
 		<header-file src="src/ios/FlurryPlugin.h" />
 		<source-file src="src/ios/FlurryPlugin.m" />
-		<source-file src="src/ios/libFlurry.a" framework="true" />
-		<framework src="CFNetwork.framework" />
 		<framework src="SystemConfiguration.framework" />
 		<framework src="Security.framework" />
 	</platform>
@@ -36,13 +34,20 @@
 	<platform name="android">
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="FlurryPlugin">
-        <param name="android-package" value="co.themobilefirm.FlurryPlugin.Flurry" />
-    </feature>
+				<param name="android-package" value="com.phonegap.plugins.Flurry" />
+			</feature>
 		</config-file>
 
 		<source-file src="src/android/Flurry.java"
-						target-dir="src/co/themobilefirm/FlurryPlugin/" />
-		<source-file src="src/android/FlurryAnalytics.jar"
-						target-dir="libs" />
+					target-dir="src/com/phonegap/plugins/flurry/" />
+		<dependency id="com.google.playservices" />
+		<dependency id="android.support.v4" />
+		<config-file target="AndroidManifest.xml" parent="/*/application">
+			<meta-data android:name="com.google.android.gms.version"
+			  android:value="@integer/google_play_services_version"/>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/*">
+		  <uses-permission android:name="android.permission.INTERNET" />
+		</config-file>
 	</platform>
 </plugin>

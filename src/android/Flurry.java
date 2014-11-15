@@ -1,4 +1,4 @@
-package co.themobilefirm.FlurryPlugin;
+package com.phonegap.plugins.flurry;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -6,8 +6,6 @@ import java.util.Map;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.PluginResult;
-
 import android.util.Log;
 
 import com.flurry.android.FlurryAgent;
