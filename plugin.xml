@@ -40,7 +40,7 @@
 		</config-file>
 
 		<source-file src="src/android/Flurry.java"
-					target-dir="com/phonegap/plugins/flurry/" />
+					target-dir="src/com/phonegap/plugins/flurry/" />
 		<dependency id="com.google.playservices" />
 		<dependency id="android.support.v4" />
 		<config-file target="AndroidManifest.xml" parent="/*/application">
