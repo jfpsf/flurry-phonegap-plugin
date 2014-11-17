@@ -95,7 +95,7 @@
     
     @try {
         NSString* event = [command.arguments objectAtIndex:0];
-        NSDictionary* parameters = [command.arguments objectAtIndex:1];
+        NSDictionary* parameters = [NSDictionary dictionaryWithDictionary:[command.arguments objectAtIndex:1]];
         
         [Flurry logEvent:event withParameters:parameters];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
@@ -160,7 +160,7 @@
     {
 
         NSString* event = [command.arguments objectAtIndex:0];
-        NSDictionary* parameters = [command.arguments objectAtIndex:1];
+        NSDictionary* parameters = [NSDictionary dictionaryWithDictionary:[command.arguments objectAtIndex:1]];
         bool Timed = [[command.arguments objectAtIndex:2]boolValue];
 
         [Flurry logEvent:event withParameters:parameters timed:Timed];
@@ -184,7 +184,7 @@
     
     @try {
         NSString* event = [command.arguments objectAtIndex:0];
-        NSDictionary* parameters = [command.arguments objectAtIndex:1];
+        NSDictionary* parameters = [NSDictionary dictionaryWithDictionary:[command.arguments objectAtIndex:1]];
         
         [Flurry endTimedEvent:event withParameters:parameters];
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
