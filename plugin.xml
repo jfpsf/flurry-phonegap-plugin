@@ -27,9 +27,11 @@
             </feature>
         </config-file>
 		
+		<framework src="wp8/lib/FlurryWP8SDK.dll" custom="true" />
 		<source-file src="wp8/FlurryPlugin.cs"/>
 		<source-file src="wp8/JObject.cs"/>
 		<source-file src="wp8/JSONDecoder.cs"/>
+
 	</platform>
 
 	<platform name="ios">
