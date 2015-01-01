@@ -5,11 +5,11 @@
 
 
   // helper function to prevent Objective C bleed over into javascript
-  function bool2ObjC(v) {
+  function bool2ObjC(value) {
     
-    if(enabled === true) {
+    if(value === true) {
       return 'YES';
-    } else if(enabled === false) {
+    } else if(value === false) {
       return 'NO'
     }
 
