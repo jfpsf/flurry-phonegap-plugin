@@ -13,7 +13,7 @@
       return 'NO'
     }
 
-    return v.toUpperCase();
+    return value.toUpperCase();
   }
 
 
