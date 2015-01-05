@@ -28,6 +28,7 @@
 		<header-file src="src/ios/FlurryPlugin.h" />
 		<source-file src="src/ios/FlurryPlugin.m" />
 		<framework src="SystemConfiguration.framework" />
+		<framework src="CFNetwork.framework" />
 		<framework src="Security.framework" />
 	</platform>
 
