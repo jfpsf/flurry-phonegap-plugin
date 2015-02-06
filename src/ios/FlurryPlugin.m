@@ -385,28 +385,6 @@
     }];
 }
 
-- (void) setSecureTransportEnabled:(CDVInvokedUrlCommand*)command
-{
-    [self.commandDelegate runInBackground:^{
-        CDVPluginResult* pluginResult = nil;
-        
-        NSLog(@"Enabling Flurry Secure Transport");
-        
-        @try {
-            bool Value = [[command.arguments objectAtIndex:0]boolValue];
-            
-            [Flurry setSecureTransportEnabled: Value];
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-        }
-        @catch (NSException *exception) {
-            pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_JSON_EXCEPTION
-                                             messageAsString:[exception reason]];
-        }
-        
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-    }];
-}
-
 - (void) setSessionReportsOnCloseEnabled:(CDVInvokedUrlCommand*)command
 {
     [self.commandDelegate runInBackground:^{
