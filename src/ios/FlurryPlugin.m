@@ -53,7 +53,7 @@
         
         @try {
             if (key != nil) {
-                [Flurry startSession: key];
+                dispatch_sync(dispatch_get_main_queue(), ^{[Flurry startSession: key];});
                 pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
                 // starting Flurry - Update Key before releasing
             }
