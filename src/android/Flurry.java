@@ -36,7 +36,7 @@ public class Flurry extends CordovaPlugin {
         try{
             Log.d("Flurry", action);
             if(action.equals("startSession")) {
-                FlurryAgent.init(cordova.getActivity().getApplicationContext(), args.getString(0));
+                FlurryAgent.init(cordova.getActivity().getBaseContext(), args.getString(0));
                 FlurryAgent.onStartSession(cordova.getActivity().getBaseContext(), args.getString(0));
             } else if(action.equals("endSession")) {
                 FlurryAgent.onEndSession(cordova.getActivity().getBaseContext());
