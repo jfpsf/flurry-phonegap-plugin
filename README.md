@@ -16,7 +16,7 @@ Unfortunately the policy of Flurry doesn't allow to include the SDK in this repo
     - Android:
         - Copy `FlurryAgent-*.jar` lib to your lib dir manually.
         - Plugin automatically adds references to Google Play Services and Android v4 support lib.
-        - If you already have `android-support-v4.jar` lib referenced in your project and get error messages, delete the new one in your libs folder.
+        - If you do not have `android-support-vX.jar` lib referenced in your project and get error messages, install it by following instructions at http://developer.android.com/tools/support-library/features.html#v4.
     - iOS:
         - Copy `libFlurry_*.a` lib to your lib dir manually.
         - Plugin automatically adds references to Security and SystemConfiguration frameworks.
