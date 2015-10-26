@@ -63,6 +63,7 @@ Unfortunately the policy of Flurry doesn't allow to include the SDK in this repo
 - [Koray Balcı](https://github.com/koraybalci)
 - [Patrick heneise (The Mobile Firm)](https://github.com/PatrickHeneise)
 - [Ivan Karpan](https://github.com/IvanKarpan)
+- [LilDevine89](https://github.com/LilDevine89)
 
 ## License
 Apache 2.0
