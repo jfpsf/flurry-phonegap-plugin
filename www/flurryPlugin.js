@@ -25,22 +25,18 @@
     return cordova.exec(successCallback, failureCallback, 'FlurryPlugin', 'setAppVersion', [version]);
   };
 
-  // argument must be Yes or No, because it's objective C
   Flurry.prototype.setShowErrorInLogEnabled = function(enableValue, successCallback, failureCallback) {
     return cordova.exec( successCallback, failureCallback, 'FlurryPlugin', 'setShowErrorInLogEnabled', [bool2ObjC(enableValue)]);
   };
 
-  // argument must be Yes or No, because it's objective C
   Flurry.prototype.setEventLoggingEnabled = function(enableValue, successCallback, failureCallback) {
     return cordova.exec( successCallback, failureCallback, 'FlurryPlugin', 'setEventLoggingEnabled', [bool2ObjC(enableValue)]);
   };
 
-  // argument must be Yes or No, because it's objective C
   Flurry.prototype.setDebugLogEnabled = function(enableValue, successCallback, failureCallback) {
     return cordova.exec( successCallback, failureCallback, 'FlurryPlugin', 'setDebugLogEnabled', [bool2ObjC(enableValue)]);
   };
 
-  // argument must be Yes or No, because it's objective C
   Flurry.prototype.setSecureTransportEnabled = function(enableValue, successCallback, failureCallback) {
     return cordova.exec( successCallback, failureCallback, 'FlurryPlugin', 'setSecureTransportEnabled', [bool2ObjC(enableValue)]);
   };
@@ -50,7 +46,6 @@
     return cordova.exec( successCallback, failureCallback, 'FlurryPlugin', 'setSessionContinueSeconds', [seconds]);
   };
 
-  // argument must be Yes or No, because it's objective C
   Flurry.prototype.setCrashReportingEnabled = function(enableValue, successCallback, failureCallback) {
     return cordova.exec( successCallback, failureCallback, 'FlurryPlugin', 'setCrashReportingEnabled', [bool2ObjC(enableValue)]);
   };
@@ -80,13 +75,11 @@
     return cordova.exec( successCallback, failureCallback, 'FlurryPlugin', 'logPageView', []);
   };
 
-  // timed must be Yes or No, because it's objective C
   Flurry.prototype.logTimedEvent = function(event, timed, successCallback, failureCallback) {
     return cordova.exec( successCallback, failureCallback, 'FlurryPlugin', 'logTimedEvent', [event, bool2ObjC(timed)]);
   };
 
   // parameters must be a JSON dictionary that contains only strings like {id:"4", price: "471", location: "New York"}
-  // timed must be Yes or No, because it's objective C
   Flurry.prototype.logTimedEventWithParameters = function(event, parameters, timed, successCallback, failureCallback) {
     return cordova.exec( successCallback, failureCallback, 'FlurryPlugin', 'logTimedEventWithParameters', [event, parameters, bool2ObjC(timed)]);
   };
@@ -121,12 +114,10 @@
     return cordova.exec( successCallback, failureCallback, 'FlurryPlugin', 'setLatitude', [latitude,longitude,horizontalAccuracy,verticalAccuracy]);
   };
 
-  // argument must be Yes or No, because it's objective C
   Flurry.prototype.setSessionReportsOnCloseEnabled = function (enabled, successCallback, failureCallback) {
     return cordova.exec(successCallback, failureCallback, 'FlurryPlugin', 'setSessionReportsOnCloseEnabled', [bool2ObjC(enabled)]);
   };
 
-  // argument must be Yes or No, because it's objective C
   Flurry.prototype.setSessionReportsOnPauseEnabled = function (enabled, successCallback, failureCallback) {
     return cordova.exec(successCallback, failureCallback, 'FlurryPlugin', 'setSessionReportsOnPauseEnabled', [bool2ObjC(enabled)]);
   };
