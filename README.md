@@ -15,12 +15,12 @@ Unfortunately the policy of Flurry doesn't allow to include the SDK in this repo
 - Follow the installation steps that come with the SDK files, Flurry has great documentation. Basically;
     - Android:
 		- Change the name of `FlurryAgent-*.jar` (or `FlurryAnalytics-*.jar` if using uptodate version) to `FlurryAgent.jar`
-        - Copy `FlurryAgent.jar` into the 'plugin/com.phonegap.plugins.Flurry/src/android' folder
+        - Copy `FlurryAgent.jar` into the 'plugins/com.phonegap.plugins.Flurry/src/android' folder
         - Plugin automatically adds references to Google Play Services and Android v4 support lib.
         - If you do not have `android-support-vX.jar` lib referenced in your project and get error messages, install it by following instructions at http://developer.android.com/tools/support-library/features.html#v4.
     - iOS:
 		- Change the name of `libFlurry_*.a` to `libFlurry.a`
-        - Copy `libFlurry.a` into the 'plugin/com.phonegap.plugins.Flurry/src/ios' folder.
+        - Copy `libFlurry.a` into the 'plugins/com.phonegap.plugins.Flurry/src/ios' folder.
         - Plugin automatically adds references to Security and SystemConfiguration frameworks.
         - Verify that `libFlurry.a` is in the Build Phases/Link Binary with Libraries and the Frameworks `CFNetwork`, `Security` and `SystemConfiguration` frameworks are added.
 
